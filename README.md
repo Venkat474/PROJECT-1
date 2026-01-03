@@ -118,4 +118,10 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 <br> 👉`[root@JENKINS-SERVER ~]# yum install git`
 <br> **Go to Jenkins GUI & Login again** 
 <br> 😏 Now we need to create one test project & we want to test the build 
-<br> + New item ➡️ Name = Test-Maven-Build ➡️ Maven project = ok ➡️ Description = Test Maven Build ➡️ Source Code Management = Git ➡️ Repository URL = 
+<br> + New item ➡️ Name = Test-Maven-Build ➡️ Maven project = ok ➡️ Description = Test Maven Build ➡️ Source Code Management = Git ➡️ Repository URL = https://github.com/Venkat474/registration-app.git ➡️ Credentials = none ➡️ Branch Specifier = [*/main] Always go & check this in ur Github ➡️ Build = (Root POM = pom.xml) = (Goals and options = clean install) ➡️ Apply ➡️ Save  <br> **Click on Build Now** &nbsp;&nbsp;&nbsp;&nbsp;(O/P=Success Here it download all dependencies for build)
+<br> Dashboard > Test-Maven-Build = Workspace =webapp = target (Here we see `webapp.war` this is the final build file) 
+## 🔹 4️⃣ SETUP TOMCAT SERVER 🔹
+**` Go to Aws `**
+<br> 👉 EC2 ➡️ Launch Instance ➡️ Name = [Tomcat-Server] ➡️ AMI=Amazon Linux(QuickStart) ➡️ Amazon.Linux 2 AMI(HVM)-Kernel 5.10 , SSD Volume Type (Free Tier Eligible) ➡️ Architecture = 64-bit(x86) ➡️ Instance type = t2.micro(Free Tier Eligible) ➡️ Key pair = selectoldone ➡️ Network Settings = Firewall = create security group = ✔️ Allow SSH traffic from 0.0.0.0/0 ➡️ Configure storage = 1x8 GiB gp2 Root Volume = Launch Instance
+### Tomcat WORKS ON PORT 8080
+**` Go to Aws `** ➡️EC2➡️ security ➡️ securitygroups ➡️ Inbound rules ➡️ Edit Inbound Rules➡️ Add rule ➡️ portrange=8080 ➡️ source=AnywhereIPV4 ➡️ Type=customTCP ➡️ SaveRules = Copy Public IPV4 address of Tomcat-Server
