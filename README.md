@@ -123,5 +123,5 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 ## 🔹 4️⃣ SETUP TOMCAT SERVER 🔹
 **` Go to Aws `**
 <br> 👉 EC2 ➡️ Launch Instance ➡️ Name = [Tomcat-Server] ➡️ AMI=Amazon Linux(QuickStart) ➡️ Amazon.Linux 2 AMI(HVM)-Kernel 5.10 , SSD Volume Type (Free Tier Eligible) ➡️ Architecture = 64-bit(x86) ➡️ Instance type = t2.micro(Free Tier Eligible) ➡️ Key pair = selectoldone ➡️ Network Settings = Firewall = create security group = ✔️ Allow SSH traffic from 0.0.0.0/0 ➡️ Configure storage = 1x8 GiB gp2 Root Volume = Launch Instance
-### Tomcat WORKS ON PORT 8080
+### TOMCAT WORKS ON PORT 8080
 **` Go to Aws `** ➡️EC2➡️ security ➡️ securitygroups ➡️ Inbound rules ➡️ Edit Inbound Rules➡️ Add rule ➡️ portrange=8080 ➡️ source=AnywhereIPV4 ➡️ Type=customTCP ➡️ SaveRules = Copy Public IPV4 address of Tomcat-Server
