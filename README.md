@@ -118,4 +118,4 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 <br> 👉`[root@JENKINS-SERVER ~]# yum install git`
 <br> **Go to Jenkins GUI & Login again** 
 <br> 😏 Now we need to create one test project & we want to test the build 
-<br> + New item ➡️ Name = Test-Maven-Build ➡️ Maven project = ok ➡️ Description = Test Maven Build ➡️ Source Code Management = Git ➡️ 
+<br> + New item ➡️ Name = Test-Maven-Build ➡️ Maven project = ok ➡️ Description = Test Maven Build ➡️ Source Code Management = Git ➡️ Repository URL = 
