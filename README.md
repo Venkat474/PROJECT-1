@@ -183,4 +183,42 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 <br> 👉`[root@ip-172-31-37-17 tomcat]# cd bin/`
 <br> 👉`[root@ip-172-31-37-17 bin]# ./shutdown.sh`
 <br> 👉`[root@ip-172-31-37-17 bin]# ./startup.sh`
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Go to Tomcat GUI page & refresh = Go to Manager App = It will ask Username(admin) & Password(admin) (Now i have login to the Tomcat server) 
+## 🔹 5️⃣ INTEGRATING TOMCAT SERVER WITH JENKINS 🔹
+Here we need to Integrate the Tomcat with Jenkins there is no Predefined Plugin for the Tomcat Server ,
+<br> We need to install ,deploy to container plugin then we need to configure Tomcat Server with the credentials
+<br> **`Go to Jenkins GUI & Login again`** 
+<br> **` Go to Manage Jenkins `** ➡️ plugins ➡️ Available Plugins (search=✔️Deploy to container) Install without restart 
+<br> 🔲 Now we need to add the credentials of the Tomcat Server to the Jenkins
+<br> **` Go to Manage Jenkins `** ➡️ under security = Credentials ➡️ System ➡️ Global credentials ➡️ `+ Add Credentials` 
+<br> 🔲 Kind = username with password 
+<br> 🔲 username = deployer (This already we have created in above photo)
+<br> 🔲 Password = deployer
+<br> 🔲 ID = tomcat-credentials (Description = tomcat-credentials) Create
+<br> **` Go to Dashboard `** ➡️ `+ Add item` ➡️ Name=BuildAndDeployToTomcat ➡️ Maven Project ➡️ Ok
+<br> Description = Build And Deploy To Tomcat Server ➡️ Source Code Management = git <br>➡️ Repository Url = https://github.com/Venkat474/registration-app.git ➡️ Branch = */main <br> Build ➡️ Root POM = pom.xml ➡️ Goals and options = clean install 
+<br> Post-build Actions ➡️ Add post-build action ➡️ select Deploy war/ear to a container <br> ➡️ WAR/EAR files = **/*.war **(If it finds the any dot war file inside the build directory of workspace it will deploy it)** 
+<br>➡️ Containers = Add Containers = Tomcat 8.xRemote ➡️ Credentials = deployer/******(tomcat-credentials) ➡️ Tomcat URL = https://3.110.225.113:8080/ (copy from browser) ➡️ Apply = Save
+<br> ⚠️ Before U click on Build Now close the Tomcat GUI tab from browser otherwise it will fail
+<br> Now Job has created & Now run the Job `Build Now` = O/P Success
+<br> open IP of tomcat server https://3.110.225.113:8080/ = Manager App = Here u see `/webapp` This is our application deployed through Jenkins ,Click on it U see your application (This is registration App). 
+### AUTOMATE BUILD AND DEPLOY USING POLL SCM AND VERIFY CI/CD 
+**` Go to Jenkins GUI `** Dashboard = BuildAndDeployToTomcat = Configure = under Build Triggers(✔️ Poll SCM)schedule=***** = Apply = Save
+<br> **(This means every minute it will check the githubrepository if any change is there in this repo then it will trigger the pipeline)**
+<br> ⚠️ Using Poll SCM it will only monitor the github repo not the complete account 
+<br> Now we need to test our pipeline 
+<br> **` Go to Github repo(Registration-app) `** ➡️ webapp ➡️src/main/webapp➡️index.jsp=edit this file
+<br> 🔲 New user Register for Devops Learning `at virtualTechBox` = commit changes
+<br> ⚠️ close the Tomcat GUI tab from browser otherwise it will fail
+<br> Go to Jenkins job within a min it will automatically triggered the pipeline / Build and Deploy job [O/P = Success]
+<br> open IP of tomcat server https://3.110.225.113:8080/ = Manager App = `/webapp` = u can see changes 
+<h1> Moral </h1>
 
+### 🚀 Automated CI/CD Pipeline using Jenkins, Maven & Tomcat
+Using this setup, you create a **fully automated CI/CD pipeline 🔄.**
+- 👉 Whenever you make any change in the GitHub repository (from your local system using Git):
+- 🔔 **Jenkins job is triggered automatically**
+- 🔨 Jenkins **builds the project using Maven**
+- 📦 The application is **packaged**
+- 🚀 Jenkins **deploys the application to the Tomcat Server**
+<br>All these steps happen **automatically without manual work 🤖.**
