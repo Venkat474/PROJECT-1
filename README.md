@@ -39,8 +39,8 @@
 <br> 👉`[root@ip-172-31-47-91 ~]# sudo systemctl enable jenkins`
 - “Turn on Jenkins right now so I can use it.”
 <br> 👉`[root@ip-172-31-47-91 ~]# sudo systemctl start jenkins`
-- Shows which version of Java is installed and running on your system. `java -version`
-- Shows which version of Java compiler is installed. `javac -version`
+- Shows which version of Java is installed and running on your system. `java --version`
+- Shows which version of Java compiler is installed. `javac --version`
 <br> 👉`[root@ip-172-31-47-91 ~]# systemctl status jenkins`
 ### CHANGING HOSTNAME OF THE SERVER
 👉`[root@ip-172-31-47-91 ~]# hostname JENKINS-SERVER` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   [meaning = “Rename my server to JENKINS-SERVER.”]
