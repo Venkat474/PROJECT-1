@@ -169,5 +169,13 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 <br> 👉`[root@ip-172-31-37-17 conf]# vim tomcat-users.xml`
 <br> &nbsp;&nbsp;&nbsp;&nbsp;● Here i need to go to end of this file so click `(Shift + G)` 
 <br> &nbsp;&nbsp;&nbsp;&nbsp;● At downwards u see few users are there but they are commented Remove everything which are there inside this comment `<--` & `-->` 
-<br> &nbsp;&nbsp;&nbsp;&nbsp;● Provide 3 new user details as shown below 
+<br> ![Project Image](PHOTOS/Before-role-username.PNG)
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Provide 3 new user details as shown below and (:wq)
 <br> ![Project Image](PHOTOS/role-username.PNG)
+<br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Allows access to Tomcat Manager web page (GUI).
+<br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Allows access to Tomcat Manager using scripts/CLI.
+<br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Allows access to JMX monitoring tools.
+<br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Allows access to view server status only.
+<br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Creates an admin user with full manager access.
+<br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Creates a deployer user who can deploy apps using scripts only.
+<br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Creates a tomcat user who can access the web UI only.
