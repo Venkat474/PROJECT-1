@@ -104,16 +104,13 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 ## 🔹 3️⃣ INSTALL MAVEN PLUGIN AND CONFIGURE JENKINS FOR MAVEN 🔹
 **` Go to Aws `** ➡️ copy public IPV4 address:8080 = paste in browser 
 <br> **` Go to Manage Jenkins `** ➡️ plugins ➡️ Available Plugins (search=✔️maven Integration) Install without restart 
-- Meaning=It will Install dependencies,& plugin has been installed to Maven
-
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Meaning=It will Install dependencies,& plugin has been installed to Maven
 <br> **` Go to Manage Jenkins `** ➡️ Tools 
-- JDK = Add JDK = (Name=java11) = (JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.19.0.7-1.amzn2.0.1.x86_64)copythislinefrom above
-- Maven = Add Maven = (Name=maven) = untick [ ] install automatically = MAVEN_HOME=/opt/maven = Apply = Save
-
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● JDK = Add JDK = (Name=java11) = (JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.19.0.7-1.amzn2.0.1.x86_64)copythislinefrom above
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Maven = Add Maven = (Name=maven) = untick [ ] install automatically = MAVEN_HOME=/opt/maven = Apply = Save
 <br> **` Go to Manage Jenkins `** ➡️ plugins ➡️ Installed Plugins ➡️ (search=github)
-- Disable = Github Branch Source Plugin
-- Enable = Github Plugin = click on (Restart Once No Jobs Are Running)
-
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Disable = Github Branch Source Plugin
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Enable = Github Plugin = click on (Restart Once No Jobs Are Running)
 <br> **Go to terminal** 
 <br> 👉`[root@JENKINS-SERVER ~]# yum install git`
 <br> **Go to Jenkins GUI & Login again** 
@@ -125,3 +122,50 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 <br> 👉 EC2 ➡️ Launch Instance ➡️ Name = [Tomcat-Server] ➡️ AMI=Amazon Linux(QuickStart) ➡️ Amazon.Linux 2 AMI(HVM)-Kernel 5.10 , SSD Volume Type (Free Tier Eligible) ➡️ Architecture = 64-bit(x86) ➡️ Instance type = t2.micro(Free Tier Eligible) ➡️ Key pair = selectoldone ➡️ Network Settings = Firewall = create security group = ✔️ Allow SSH traffic from 0.0.0.0/0 ➡️ Configure storage = 1x8 GiB gp2 Root Volume = Launch Instance
 ### TOMCAT WORKS ON PORT 8080
 **` Go to Aws `** ➡️EC2➡️ security ➡️ securitygroups ➡️ Inbound rules ➡️ Edit Inbound Rules➡️ Add rule ➡️ portrange=8080 ➡️ source=AnywhereIPV4 ➡️ Type=customTCP ➡️ SaveRules = Copy Public IPV4 address of Tomcat-Server
+<br> **` Go to MobaXtrem `**
+<br> 👉 Session ➡️ SSH ➡️ Remote host (Paste here IPV4 of Tomcat-Server) ➡️ ✔️specify username = ec2-user , Port 22 
+<br> Advanced SSH Settings = ✔️ use private key = ______(Provide private key which is in downloads) ➡️ ✔️x11 = Forwarding ➡️ ✔️Compression ➡️ Remote environment = interactive shell ➡️ SSH-browser-type = SFTP protocol = OK 
+<br> 👉`[ec2-user@ip-172-31-37-17 ~]$ sudo su`
+<br> 👉`[root@ip-172-31-37-17 ec2-user]# cd ~`
+<br> 👉`[root@ip-172-31-37-17 ~]# pwd`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(O/P = /root)
+<br> 👉`[root@ip-172-31-37-17 ~]# amazon-linux-extras install java-openjdk11` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Meaning = “Install Java 11 on Amazon Linux.”)
+<br> 👉`[root@ip-172-31-37-17 ~]# java --version` 
+<br> 🔗 https://tomcat.apache.org/download-90.cgi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>(In Binary Distribution section there is file called `tar.gz (pgp, sha512)` Right click + Copy link address )
+<br> 👉`[root@ip-172-31-37-17 ~]# cd /opt`
+<br> 👉`[root@ip-172-31-37-17 opt]# wget ___Paste copied path`
+<br> 👉`[root@ip-172-31-37-17 opt]# ls`
+<br> apache-tomcat-9.0.76.tar.gz(This is now downloaded file)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aws&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rh
+<br> 👉`[root@ip-172-31-37-17 opt]# tar -xvzf apache-tomcat-9.0.76.tar.gz`  &nbsp;&nbsp;&nbsp;&nbsp;(This is to exctract the file)
+<br> apache-tomcat-9.0.76&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache-tomcat-9.0.76.tar.gz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aws&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rh 
+<br> 👉`[root@ip-172-31-37-17 opt]# mv apache-tomcat-9.0.76 tomcat`
+<br> 👉`[root@ip-172-31-37-17 opt]# ls`
+<br> apache-tomcat-9.0.76.tar.gz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aws&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tomcat
+<br> 👉`[root@ip-172-31-37-17 opt]# cd tomcat`
+<br> 👉`[root@ip-172-31-37-17 tomcat]# cd bin`
+<br> 👉`[root@ip-172-31-37-17 bin]# ls`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Here there is one file called startup.sh we need to start the tomcat)
+<br> 👉`[root@ip-172-31-37-17 bin]# ./startup.sh`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Now tomcat has been started in our server)
+<br> Copy Public IPV4 address of Tomcat-Server = paste in browser _________:8080 = Go to Manager App option (here it is giving error 😑`403 Access Denied`)
+<br> 💡 To resolve this we need to edit `context.xml` file
+<br> 👉`[root@ip-172-31-37-17 bin]# cd ..`
+<br> 👉`[root@ip-172-31-37-17 tomcat]# find / -name context.xml`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Here last 2 files we need to edit as shown below)
+<br>1./opt/tomcat/webapps/host-manager/META-INF/context.xml
+<br>2./opt/tomcat/webapps/manager/META-INF/context.xml
+<br> 👉`[root@ip-172-31-37-17 tomcat]# vim /opt/tomcat/webapps/host-manager/META-INF/context.xml`
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● As you see in valve className line here it is only allowing through localhost so we need to comment these 2 lines as shown below
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● `<!--` <Valve className=............................................................
+<br> &nbsp;&nbsp;&nbsp;&nbsp;●    ............................................................................/> `-->`&nbsp;&nbsp;&nbsp;&nbsp; wq:&nbsp;&nbsp;&nbsp;&nbsp;(This is how we comment in xml file)
+<br> 👉`[root@ip-172-31-37-17 tomcat]# vim /opt/tomcat/webapps/manager/META-INF/context.xml`
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● `<!--` <Valve className=............................................................
+<br> &nbsp;&nbsp;&nbsp;&nbsp;●    ............................................................................/> `-->`&nbsp;&nbsp;&nbsp;&nbsp; wq:
+<br> &nbsp;&nbsp;&nbsp;&nbsp; Now we need to reboot the Tomcat Server
+<br> 👉`[root@ip-172-31-37-17 tomcat]# cd bin/`
+<br> 👉`[root@ip-172-31-37-17 bin]# ./shutdown.sh`
+<br> 👉`[root@ip-172-31-37-17 bin]# ./startup.sh`
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Go to Tomcat GUI page & refresh = Go to Manager App = It will ask Username & Password just cancel it = 😑`401 Unauthorized`
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● 💡To resolve this we have to create the credentials in Tomcat Server to access this
+<br> 👉`[root@ip-172-31-37-17 bin]# cd ..`
+<br> 👉`[root@ip-172-31-37-17 tomcat]# cd conf/`
+<br> 👉`[root@ip-172-31-37-17 conf]# ls`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(we need to edit this file `tomcat-users.xml`)
+<br> 👉`[root@ip-172-31-37-17 conf]# vim tomcat-users.xml`
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Here i need to go to end of this file so click `(Shift + G)` 
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● At downwards u see few users are there but they are comented Remove `<--` & `-->` symbol , and also delete everything which is there inside this symbol.
