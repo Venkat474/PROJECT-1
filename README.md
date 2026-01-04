@@ -170,7 +170,7 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 <br> &nbsp;&nbsp;&nbsp;&nbsp;● Here i need to go to end of this file so click `(Shift + G)` 
 <br> &nbsp;&nbsp;&nbsp;&nbsp;● At downwards u see few users are there but they are commented Remove everything which are there inside this comment `<--` & `-->` 
 <br> ![Project Image](PHOTOS/Before-role-username.PNG)
-<br> &nbsp;&nbsp;&nbsp;&nbsp;● Provide 3 new user details as shown below and (:wq)
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Provide 3 new user details as shown below and (:wq) [Open role-username.txt](role-username.txt)
 <br> ![Project Image](PHOTOS/After-role-username.PNG)
 <br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Allows access to Tomcat Manager web page (GUI).
 <br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Allows access to Tomcat Manager using scripts/CLI.
