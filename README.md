@@ -168,4 +168,6 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 <br> 👉`[root@ip-172-31-37-17 conf]# ls`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(we need to edit this file `tomcat-users.xml`)
 <br> 👉`[root@ip-172-31-37-17 conf]# vim tomcat-users.xml`
 <br> &nbsp;&nbsp;&nbsp;&nbsp;● Here i need to go to end of this file so click `(Shift + G)` 
-<br> &nbsp;&nbsp;&nbsp;&nbsp;● At downwards u see few users are there but they are comented Remove `<--` & `-->` symbol , and also delete everything which is there inside this symbol.
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● At downwards u see few users are there but they are commented Remove everything which are there inside this comment `<--` & `-->` 
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Provide 3 new user details as shown below 
+<br> ![Project Image](PHOTOS/role-username.PNG)
