@@ -170,7 +170,7 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 <br> &nbsp;&nbsp;&nbsp;&nbsp;● Here i need to go to end of this file so click `(Shift + G)` 
 <br> &nbsp;&nbsp;&nbsp;&nbsp;● At downwards u see few users are there but they are commented Remove everything which are there inside this comment `<--` & `-->` 
 <br> ![Project Image](PHOTOS/Before-role-username.PNG)
-<br> &nbsp;&nbsp;&nbsp;&nbsp;● Provide 3 new user details as shown below and (:wq) [Open role-username.txt](role-username.txt)
+<br> &nbsp;&nbsp;&nbsp;&nbsp;● Provide 3 new user details as shown below and (:wq) 🔗 [Open role-username.txt](role-username.txt)
 <br> ![Project Image](PHOTOS/After-role-username.PNG)
 <br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Allows access to Tomcat Manager web page (GUI).
 <br> &nbsp;&nbsp;&nbsp;&nbsp; 🔲 Allows access to Tomcat Manager using scripts/CLI.
@@ -196,9 +196,12 @@ Here we need to Integrate the Tomcat with Jenkins there is no Predefined Plugin 
 <br> 🔲 Password = deployer
 <br> 🔲 ID = tomcat-credentials (Description = tomcat-credentials) Create
 <br> **` Go to Dashboard `** ➡️ `+ Add item` ➡️ Name=BuildAndDeployToTomcat ➡️ Maven Project ➡️ Ok
-<br> Description = Build And Deploy To Tomcat Server ➡️ Source Code Management = git <br>➡️ Repository Url = https://github.com/Venkat474/registration-app.git ➡️ Branch = */main <br> Build ➡️ Root POM = pom.xml ➡️ Goals and options = clean install 
-<br> Post-build Actions ➡️ Add post-build action ➡️ select Deploy war/ear to a container <br> ➡️ WAR/EAR files = **/*.war **(If it finds the any dot war file inside the build directory of workspace it will deploy it)** 
-<br>➡️ Containers = Add Containers = Tomcat 8.xRemote ➡️ Credentials = deployer/******(tomcat-credentials) ➡️ Tomcat URL = https://3.110.225.113:8080/ (copy from browser) ➡️ Apply = Save
+<br> Description = Build And Deploy To Tomcat Server ➡️ Source Code Management = git 
+<br> ➡️ Repository Url = https://github.com/Venkat474/registration-app.git ➡️ Branch = `*/main` 
+<br> Build ➡️ Root POM = pom.xml ➡️ Goals and options = clean install 
+<br> Post-build Actions ➡️ Add post-build action ➡️ select Deploy war/ear to a container 
+<br> ➡️ WAR/EAR files = `**/*.war` **(If it finds the any dot war file inside the build directory of workspace it will deploy it)** 
+<br> ➡️ Containers = Add Containers = Tomcat 8.xRemote ➡️ Credentials = [deployer/******(tomcat-credentials)] ➡️ Tomcat URL = https://3.110.225.113:8080/ (copy from browser) ➡️ Apply = Save
 <br> ⚠️ Before U click on Build Now close the Tomcat GUI tab from browser otherwise it will fail
 <br> Now Job has created & Now run the Job `Build Now` = O/P Success
 <br> open IP of tomcat server https://3.110.225.113:8080/ = Manager App = Here u see `/webapp` This is our application deployed through Jenkins ,Click on it U see your application (This is registration App). 
