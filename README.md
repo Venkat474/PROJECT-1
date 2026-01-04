@@ -73,7 +73,7 @@ Copy public IPV4 Address ,paste in browser➡️ 172-31-47-91:8080 ➡️ copy p
 <br> 👉`[root@JENKINS-SERVER maven]# ls`
 <br> O/P = bin&nbsp;&nbsp;&nbsp;&nbsp; boot&nbsp;&nbsp;&nbsp;&nbsp; conf&nbsp;&nbsp;&nbsp;&nbsp; lib&nbsp;&nbsp;&nbsp;&nbsp; LICENSE&nbsp;&nbsp;&nbsp;&nbsp; NOTICE&nbsp;&nbsp;&nbsp;&nbsp; README.txt
 <br> 👉`[root@JENKINS-SERVER maven]# cd bin/`
-<br> 👉`[root@JENKINS-SERVER bin]# ./mvn -v` (O/P = maven & java has installed)
+<br> 👉`[root@JENKINS-SERVER bin]# ./mvn -v` (O/P = maven & java has installed 😃)
 <br> 👉`[root@JENKINS-SERVER bin]# cd ..`
 <br> 👉`[root@JENKINS-SERVER maven]# ./mvn -v`
 <br> bash:&nbsp;&nbsp;&nbsp;&nbsp; ./mvn:&nbsp;&nbsp;&nbsp;&nbsp; No such file or directory 😨
